@@ -7,6 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:testapp/Animation/AnimationBuildLogin.dart';
 import 'package:testapp/Ui/SignUpPage.dart';
+import 'package:testapp/Ui/home_screen.dart';
 import 'package:testapp/constants/ColorGlobal.dart';
 import 'package:testapp/constants/TextField.dart';
 
@@ -55,6 +56,24 @@ class LoginState extends State<LoginScreen>
     getDisposeController();
   }
 
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => HomeScreen(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  var begin = Offset(0.0, 1.0);
+var end = Offset.zero;
+var curve = Curves.ease;
+
+var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+  return SlideTransition(
+   position: animation.drive(tween),
+    child: child,
+  );
+     
+    },
+  );
+}
   @override
   void dispose() {
     getDisposeController();
@@ -307,7 +326,10 @@ class LoginState extends State<LoginScreen>
                             borderRadius:
                                 BorderRadius.all(Radius.circular((22.0)))),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // Navigator.push(context,MaterialPageRoute(builder: (context)=>HomeScreen()));
+                            Navigator.of(context).push(_createRoute());
+                          },
                           child: Text(
                             "SIGN IN",
                             textAlign: TextAlign.center,
