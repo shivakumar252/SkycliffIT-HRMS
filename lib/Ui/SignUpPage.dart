@@ -5,7 +5,6 @@ import 'package:testapp/Animation/AnimationBuildLogin.dart';
 import 'package:testapp/constants/ColorGlobal.dart';
 import 'package:testapp/constants/TextField.dart';
 
-
 class SignUpPage extends StatefulWidget {
   @override
   SignUpPageState createState() {
@@ -47,22 +46,22 @@ class SignUpPageState extends State<SignUpPage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return SafeArea(
-          child: Scaffold(
-        body:Center(
-            child: Container(
-      decoration: BoxDecoration(
-        gradient: new LinearGradient(
-          colors: [Colors.blueGrey[50], Colors.lightBlue[200]],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+      child: Scaffold(
+          body: Center(
+              child: Container(
+        decoration: BoxDecoration(
+          gradient: new LinearGradient(
+            colors: [Colors.blueGrey[50], Colors.lightBlue[200]],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
-      ) ,
-       child: Center(
+        child: Center(
           child: Container(
             width: width < 800 ? width : 900,
-            height: width < 800 ? height * 1.0: height * 1.0,
+            height: width < 800 ? height * 1.0 : height * 1.0,
             child: Card(
-              shape: width > 800 ?CircleBorder():null,
+              shape: width > 800 ? CircleBorder() : null,
               elevation: 10,
               child: Container(
                 // color: Colors.green,
@@ -70,53 +69,48 @@ class SignUpPageState extends State<SignUpPage> {
                 height: width < 800 ? height * 0.9 : height * 0.7,
                 child: Row(
                   children: [
-                   width>800? Container(
-                    child: Column(children: [
-                      
-                      _imageWidget(),
-                      Container(
-                        padding:EdgeInsets.only(bottom:0),
-                        child:  
-                         Text(
-                          "SkyCliff IT",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 50,
-                              color: Colors.blueAccent),
-                        ),
-                      )
-                    ]),
+                    width > 800
+                        ? Container(
+                            child: Column(children: [
+                              _imageWidget(),
+                              Container(
+                                padding: EdgeInsets.only(bottom: 0),
+                                child: Text(
+                                  "SkyCliff IT",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 50,
+                                      color: Colors.blueAccent),
+                                ),
+                              )
+                            ]),
 
-                    // color: Colors.yellow,
-                    width: width < 800 ? null : 490,
-                    height: width < 800 ? height * 0.9 : height * 0.9,
-                  ): Container(
-                    child: 
-                      _imageWidget(),
-                    // color: Colors.yellow,
-                    width: width < 800 ? null : 490,
-                    height: width < 800 ? height * 0.9 : height * 0.9,
-                  ),
+                            // color: Colors.yellow,
+                            width: width < 800 ? null : 490,
+                            height: width < 800 ? height * 0.9 : height * 0.9,
+                          )
+                        : Container(
+                            child: _imageWidget(),
+                            // color: Colors.yellow,
+                            width: width < 800 ? null : 490,
+                            height: width < 800 ? height * 0.9 : height * 0.9,
+                          ),
                     Container(
-                      // color: Colors.deepPurple,
-                      child: _registerScreen(),
-                      width: width < 800 ? width * 0.96 : 400,
-                      height: width < 800 ? height : height 
-                    ),
+                        // color: Colors.deepPurple,
+                        child: _registerScreen(),
+                        width: width < 800 ? width * 0.97 : 400,
+                        height: width < 800 ? height : height),
                     Container(
                       color: Colors.black,
                       width: width < 800 ? null : 1,
                     ),
-                 
                   ],
                 ),
               ),
             ),
           ),
         ),
-            )
-        )
-      ),
+      ))),
     );
   }
 
@@ -126,13 +120,12 @@ class SignUpPageState extends State<SignUpPage> {
     if (width < 800) {
       return null;
     } else {
-      return
-    Lottie.asset(
-   'assets/images/56091-people-reading-news-on-phone.json',
-    repeat:  true,
-    reverse: true,
-    animate: true,
-);
+      return Lottie.asset(
+        'assets/images/56091-people-reading-news-on-phone.json',
+        repeat: true,
+        reverse: true,
+        animate: true,
+      );
     }
   }
 
@@ -170,7 +163,7 @@ class SignUpPageState extends State<SignUpPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Image.asset(
-                              'assets/images/logo.png',
+                      'assets/images/logo.png',
                       height: 100,
                       width: 100,
                       color: ColorGlobal.whiteColor,
@@ -287,14 +280,17 @@ class SignUpPageState extends State<SignUpPage> {
                         child: Container(
 //                        margin: EdgeInsets.only(left: (10)),
                           alignment: Alignment.center,
-                          child: Text(
-                            "SIGN UP",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18,
-                              letterSpacing: 1,
-                              color: ColorGlobal.colorPrimary,
-                              fontWeight: FontWeight.w700,
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "SIGN UP",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18,
+                                letterSpacing: 1,
+                                color: ColorGlobal.colorPrimary,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ),

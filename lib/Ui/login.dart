@@ -7,7 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:testapp/Animation/AnimationBuildLogin.dart';
 import 'package:testapp/Ui/SignUpPage.dart';
-import 'package:testapp/constants/AuthButton.dart';
+import 'package:testapp/constants/ColorGlobal.dart';
 import 'package:testapp/constants/TextField.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -52,100 +52,9 @@ class LoginState extends State<LoginScreen>
     _animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation);
     // TODO: implement initState
     super.initState();
-    //  scrollController = ScrollController()
-    //   ..addListener(() {
-    //     setDialVisible(scrollController.position.userScrollDirection ==
-    //         ScrollDirection.forward);
-    //   });
     getDisposeController();
   }
-//  void setDialVisible(bool value) {
-//     setState(() {
-//       dialVisible = value;
-//     });
-//   }
 
-  // Widget buildBody() {
-  //   return ListView.builder(
-  //     controller: scrollController,
-  //     itemCount: 30,
-  //     itemBuilder: (ctx, i) => ListTile(title: Text('Item $i')),
-  //   );
-  // }
-  //  SpeedDial buildSpeedDial() {
-  //   return SpeedDial(
-  //     /// both default to 16
-  //     marginEnd: 18,
-  //     marginBottom: 20,
-  //     // animatedIcon: AnimatedIcons.menu_close,
-  //     // animatedIconTheme: IconThemeData(size: 22.0),
-  //     /// This is ignored if animatedIcon is non null
-  //     icon: Icons.add,
-  //     activeIcon: Icons.remove,
-  //     // iconTheme: IconThemeData(color: Colors.grey[50], size: 30),
-
-  //     /// The label of the main button.
-  //     // label: Text("Open Speed Dial"),
-  //     /// The active label of the main button, Defaults to label if not specified.
-  //     // activeLabel: Text("Close Speed Dial"),
-  //     /// Transition Builder between label and activeLabel, defaults to FadeTransition.
-  //     // labelTransitionBuilder: (widget, animation) => ScaleTransition(scale: animation,child: widget),
-  //     /// The below button size defaults to 56 itself, its the FAB size + It also affects relative padding and other elements
-  //     buttonSize: 56.0,
-  //     visible: true,
-
-  //     /// If true user is forced to close dial manually
-  //     /// by tapping main button and overlay is not rendered.
-  //     closeManually: false,
-  //     curve: Curves.bounceIn,
-  //     overlayColor: Colors.black,
-  //     overlayOpacity: 0.5,
-  //     onOpen: () => print('OPENING DIAL'),
-  //     onClose: () => print('DIAL CLOSED'),
-  //     tooltip: 'Speed Dial',
-  //     heroTag: 'speed-dial-hero-tag',
-  //     backgroundColor: Colors.white,
-  //     foregroundColor: Colors.black,
-  //     elevation: 8.0,
-  //     shape: CircleBorder(),
-
-  //     // orientation: SpeedDialOrientation.Up,
-  //     // childMarginBottom: 2,
-  //     // childMarginTop: 2,
-  //     gradientBoxShape: BoxShape.circle,
-  //     gradient: LinearGradient(
-  //       begin: Alignment.topCenter,
-  //       end: Alignment.bottomCenter,
-  //       colors: [Colors.black, Colors.white],
-  //     ),
-  //     children: [
-  //       SpeedDialChild(
-  //         child: Icon(Icons.accessibility),
-  //         backgroundColor: Colors.red,
-  //         label: 'First',
-  //         labelStyle: TextStyle(fontSize: 18.0),
-  //         onTap: () => print('FIRST CHILD'),
-  //         onLongPress: () => print('FIRST CHILD LONG PRESS'),
-  //       ),
-  //       SpeedDialChild(
-  //         child: Icon(Icons.brush),
-  //         backgroundColor: Colors.blue,
-  //         label: 'Second',
-  //         labelStyle: TextStyle(fontSize: 18.0),
-  //         onTap: () => print('SECOND CHILD'),
-  //         onLongPress: () => print('SECOND CHILD LONG PRESS'),
-  //       ),
-  //       SpeedDialChild(
-  //         child: Icon(Icons.keyboard_voice),
-  //         backgroundColor: Colors.green,
-  //         label: 'Third',
-  //         labelStyle: TextStyle(fontSize: 18.0),
-  //         onTap: () => print('THIRD CHILD'),
-  //         onLongPress: () => print('THIRD CHILD LONG PRESS'),
-  //       ),
-  //     ],
-  //   );
-  // }
   @override
   void dispose() {
     getDisposeController();
@@ -163,7 +72,7 @@ class LoginState extends State<LoginScreen>
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return SafeArea(
-          child: Scaffold(
+      child: Scaffold(
           // backgroundColor: Colors.grey[200],
 
           body: Center(
@@ -180,7 +89,7 @@ class LoginState extends State<LoginScreen>
             width: width < 800 ? width : 900,
             height: width < 800 ? height * 1.0 : height * 1.0,
             child: Card(
-              shape: width>800?CircleBorder():null,
+              shape: width > 800 ? CircleBorder() : null,
               elevation: 10,
               child: Container(
                 // color: Colors.green,
@@ -229,11 +138,7 @@ class LoginState extends State<LoginScreen>
             ),
           ),
         ),
-      ))
-          //  floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-
-          //Init Floating Action Bubble
-          ),
+      ))),
     );
   }
 
@@ -372,7 +277,49 @@ class LoginState extends State<LoginScreen>
                         left: (8),
                         bottom: (20),
                       ),
-                      child: AuthButton(),
+                      child: Container(
+                        height: (50.0),
+                        width: 300,
+                        decoration: BoxDecoration(
+                            gradient: new LinearGradient(
+                              colors: [
+                                ColorGlobal.whiteColor,
+                                ColorGlobal.whiteColor.withOpacity(0.7),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color:
+                                    ColorGlobal.colorPrimary.withOpacity(0.6),
+                                spreadRadius: 5,
+                                blurRadius: 20,
+                                // changes position of shadow
+                              ),
+                            ],
+                            border: Border.all(
+                              width: 2,
+                              color: ColorGlobal
+                                  .colorPrimaryDark, //                   <--- border width here
+                            ),
+                            color: ColorGlobal.whiteColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular((22.0)))),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "SIGN IN",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18,
+                              letterSpacing: 1,
+                              color: ColorGlobal.colorPrimary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
